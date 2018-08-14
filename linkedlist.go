@@ -19,6 +19,17 @@ func (l *LinkedList) add(inputData int) {
 	l.head = &newNode
 }
 
+// 2. Check if list contains node with specified input value (boolean)
+func (l *LinkedList) isFound(value int) bool {
+	current := l.head
+	for current != nil {
+		if current.data == value {
+			return true
+		}
+	}
+	return false
+}
+
 func main() {
 	fmt.Println("Working")
 }
