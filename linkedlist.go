@@ -89,27 +89,33 @@ func (l *LinkedList) valueAt(n int) int {
 func (l *LinkedList) ascInsert(inputData int) {
 	newNode := Node{data: inputData}
 
+	// if list is empty, just insert node as head
 	if l.head == nil {
 		l.head = &newNode
 	} else if l.head.data > inputData {
+		// if the head is bigger than the input data, insert node as head's nextNode
 		newNode.nextNode = l.head
 		l.head = &newNode
 	} else {
+
 		current := l.head
+
 		if current.nextNode == nil {
 			current.nextNode = &newNode
 		} else {
+			// otherwise, iterate through list, and stop when the current's next node is bigger
+			// than the input data, or when you've reached the end of the list.
 			for current.nextNode != nil && current.nextNode.data < inputData {
 				current = current.nextNode
 			}
 
+			// assign next node (which will be either bigger than data, or nil) as the newNode's next
+			// and current's next node as newNode
 			newNode.nextNode = current.nextNode
 			current.nextNode = &newNode
 
 		}
-
 	}
-
 }
 
 // 8. Print the value of each node in list separated by space.
