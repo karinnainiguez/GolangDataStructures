@@ -97,15 +97,34 @@ func (l *LinkedList) insertAsc(data int) {
 
 // 8. Print the value of each node in list separated by space.
 func (l *LinkedList) printValues() {
-	
+	current := l.head
+	for current != null {
+		fmt.Printf("%v ", current.data)
+		current = current.nextNode
+	}
 }
 
 // 9. Delete first node found with specified input data value.
-func (l *LinkedList) () {}
+func (l *LinkedList) deleteFirstVal(data int) {
+	current := l.head 
+	for current.nextNode != nil && current.nextNode.data != data {
+		current = current.nextNode
+	}
+	if current.nextNode != nil {
+		current.nextNode = current.nextNode.nextNode
+	}
+}
 
 // 10.  Reverse the list.  Nodes should be preserved, not
 // just their values.
-func (l *LinkedList) () {}
+// func (l *LinkedList) reverseList() {
+// 	tempList := List{head: &l.head}
+// 	current := l.head.nextNode 
+// 	for current != nil {
+		
+// 	}
+
+// }
 
 // 11. Return the value at the middle node.  If node count
 // is even, pick one of the two middle nodes to return.
