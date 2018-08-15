@@ -64,6 +64,21 @@ func (l *LinkedList) count() int {
 	return count
 }
 
+// 6. Return the value of the nth node from the beginning.
+// n is the input to the method. Assume indexing starts at
+// 0 while counting to n.
+func (l *LinkedList) valueAt(n int) int {
+	count := 0
+	current := l.head
+	for current != nil {
+		count++
+		if count == n {
+			return current.data
+		}
+	}
+	return 0
+}
+
 func main() {
 	fmt.Println("Working")
 }
