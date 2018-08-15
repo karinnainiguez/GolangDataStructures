@@ -263,4 +263,5 @@ func main() {
 	ascList.ascInsert(99)
 	ascList.printValues()
 
+	fmt.Printf("\n\n\n")
 }
