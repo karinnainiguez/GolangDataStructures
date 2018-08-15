@@ -79,6 +79,50 @@ func (l *LinkedList) valueAt(n int) int {
 	return 0
 }
 
+// 7. Insert new node with specific input data value, assuming
+// list is sorted in ascending order.
+func (l *LinkedList) insertAsc(data int) {
+	if l.head == nil || l.head.data > data {
+		newNode := Node{data: data, nextNode: l.head}
+		l.head = &newNode
+	} else {
+		current := l.head
+		for current.nextNode.data < data {
+			current = current.nextNode
+		}
+		newNode := Node{data: data, nextNode: current.nextNode}
+		current.nextNode = &newNode
+	}
+}
+
+// 8. Print the value of each node in list separated by space.
+func (l *LinkedList) printValues() {
+	
+}
+
+// 9. Delete first node found with specified input data value.
+func (l *LinkedList) () {}
+
+// 10.  Reverse the list.  Nodes should be preserved, not
+// just their values.
+func (l *LinkedList) () {}
+
+// 11. Return the value at the middle node.  If node count
+// is even, pick one of the two middle nodes to return.
+func (l *LinkedList) () {}
+
+// 12. Find the nth node from the end of list and return
+// value.  Assuming indexing starts at 0 while count to n
+func (l *LinkedList) () {}
+
+// 13. Check if hte linked list has a cycle.  A cycle
+// exists if any node in the linked list links to a node
+// already visited.
+func (l *LinkedList) () {}
+
+
+
+/// MAIN FUNCTION: 
 func main() {
 	fmt.Println("Working")
 }
