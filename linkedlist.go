@@ -86,18 +86,30 @@ func (l *LinkedList) valueAt(n int) int {
 
 // 7. Insert new node with specific input data value, assuming
 // list is sorted in ascending order.
-func (l *LinkedList) insertAsc(data int) {
-	if l.head == nil || l.head.data > data {
-		newNode := Node{data: data, nextNode: l.head}
+func (l *LinkedList) ascInsert(inputData int) {
+	newNode := Node{data: inputData}
+
+	if l.head == nil {
+		l.head = &newNode
+	} else if l.head.data > inputData {
+		newNode.nextNode = l.head
 		l.head = &newNode
 	} else {
 		current := l.head
-		for current.nextNode.data < data {
-			current = current.nextNode
+		if current.nextNode == nil {
+			current.nextNode = &newNode
+		} else {
+			for current.nextNode != nil && current.nextNode.data < inputData {
+				current = current.nextNode
+			}
+
+			newNode.nextNode = current.nextNode
+			current.nextNode = &newNode
+
 		}
-		newNode := Node{data: data, nextNode: current.nextNode}
-		current.nextNode = &newNode
+
 	}
+
 }
 
 // 8. Print the value of each node in list separated by space.
@@ -236,5 +248,19 @@ func main() {
 	newList.reverseList()
 	newList.printValues()
 	fmt.Printf("\n\n")
+
+	fmt.Printf("\n(ascending list) Creating ascending list...\n")
+	ascList := LinkedList{}
+	ascList.ascInsert(59)
+	ascList.ascInsert(45)
+	ascList.ascInsert(64)
+	ascList.ascInsert(24)
+	ascList.ascInsert(81)
+	ascList.ascInsert(85)
+	ascList.ascInsert(56)
+	ascList.ascInsert(87)
+	ascList.ascInsert(101)
+	ascList.ascInsert(99)
+	ascList.printValues()
 
 }
