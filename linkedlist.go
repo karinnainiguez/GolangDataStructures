@@ -122,14 +122,23 @@ func (l *LinkedList) deleteFirstVal(data int) {
 
 // 10.  Reverse the list.  Nodes should be preserved, not
 // just their values.
-// func (l *LinkedList) reverseList() {
-// 	reversed := LinkedList{head: l.head}
-// 	current := l.head.nextNode
-// 	for current != nil {
+func (l *LinkedList) reverseList() {
 
-// 	}
+	var previous *Node = nil
+	current := l.head
+	var next *Node = nil
+	for current != nil {
+		next = current.nextNode
+		current.nextNode = previous
 
-// }
+		if next == nil {
+			l.head = current
+		}
+		previous = current
+		current = next
+	}
+
+}
 
 // 11. Return the value at the middle node.  If node count
 // is even, pick one of the two middle nodes to return.
@@ -213,6 +222,19 @@ func main() {
 	list.printValues()
 	fmt.Printf("\n")
 
-	fmt.Println("\n(reverse) Couldn't figure out reverse :( ")
+	fmt.Printf("\nCreating new list to try to reverse it... \n")
+	fmt.Println("\nCreating ascending list...")
+	newList := LinkedList{}
+	newList.add(8)
+	newList.add(6)
+	newList.add(10)
+	newList.add(7)
+	newList.add(5)
+	newList.add(9)
+	fmt.Println("original list: ")
+	newList.printValues()
+	fmt.Println("\nReversed: ")
+	newList.reverseList()
+	newList.printValues()
 
 }
