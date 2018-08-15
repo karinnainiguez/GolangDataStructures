@@ -42,6 +42,18 @@ func (l *LinkedList) max() int {
 	return max
 }
 
+// 4. return min value in list (return data, not node)
+func (l *LinkedList) min() int {
+	min := l.head.data
+	current := l.head
+	for current != nil {
+		if current.data < min {
+			min = current.data
+		}
+	}
+	return min
+}
+
 func main() {
 	fmt.Println("Working")
 }
