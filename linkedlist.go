@@ -171,6 +171,7 @@ func (l *LinkedList) hasCycle() bool {
 			}
 			seen = append(seen, node)
 		}
+		current = current.nextNode
 	}
 	return false
 }
