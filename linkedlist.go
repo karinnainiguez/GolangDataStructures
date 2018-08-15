@@ -140,9 +140,20 @@ func (l *LinkedList) returnMiddleVal() int {
 
 // 12. Find the nth node from the end of list and return
 // value.  Assuming indexing starts at 0 while count to n
-// func (l *LinkedList) () {}
+func (l *LinkedList) valueAtFromEnd(n int) int {
+	count := l.count()
+	goal := count - n
+	if goal < 0 {
+		return 0
+	}
+	current := l.head
+	for i := 0; i < goal; i++ {
+		current = current.nextNode
+	}
+	return current.data
+}
 
-// 13. Check if hte linked list has a cycle.  A cycle
+// 13. Check if the linked list has a cycle.  A cycle
 // exists if any node in the linked list links to a node
 // already visited.
 // func (l *LinkedList) () {}
