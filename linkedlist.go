@@ -223,7 +223,6 @@ func main() {
 	fmt.Printf("\n")
 
 	fmt.Printf("\nCreating new list to try to reverse it... \n")
-	fmt.Println("\nCreating ascending list...")
 	newList := LinkedList{}
 	newList.add(8)
 	newList.add(6)
@@ -236,5 +235,6 @@ func main() {
 	fmt.Println("\nReversed: ")
 	newList.reverseList()
 	newList.printValues()
+	fmt.Printf("\n\n")
 
 }
