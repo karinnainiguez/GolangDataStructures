@@ -212,4 +212,6 @@ func main() {
 	list.printValues()
 	fmt.Printf("\n")
 
+	fmt.Println("\n(reverse) Couldn't figure out reverse :( ")
+
 }
