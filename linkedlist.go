@@ -26,6 +26,7 @@ func (l *LinkedList) isFound(value int) bool {
 		if current.data == value {
 			return true
 		}
+		current = current.nextNode
 	}
 	return false
 }
@@ -38,6 +39,7 @@ func (l *LinkedList) max() int {
 		if current.data > max {
 			max = current.data
 		}
+		current = current.nextNode
 	}
 	return max
 }
@@ -50,6 +52,7 @@ func (l *LinkedList) min() int {
 		if current.data < min {
 			min = current.data
 		}
+		current = current.nextNode
 	}
 	return min
 }
@@ -60,6 +63,7 @@ func (l *LinkedList) count() int {
 	current := l.head
 	for current != nil {
 		count++
+		current = current.nextNode
 	}
 	return count
 }
@@ -71,10 +75,11 @@ func (l *LinkedList) valueAt(n int) int {
 	count := 0
 	current := l.head
 	for current != nil {
-		count++
 		if count == n {
 			return current.data
 		}
+		count++
+		current = current.nextNode
 	}
 	return 0
 }
@@ -118,7 +123,7 @@ func (l *LinkedList) deleteFirstVal(data int) {
 // 10.  Reverse the list.  Nodes should be preserved, not
 // just their values.
 // func (l *LinkedList) reverseList() {
-// 	tempList := List{head: &l.head}
+// 	reversed := LinkedList{head: l.head}
 // 	current := l.head.nextNode
 // 	for current != nil {
 
@@ -156,9 +161,55 @@ func (l *LinkedList) valueAtFromEnd(n int) int {
 // 13. Check if the linked list has a cycle.  A cycle
 // exists if any node in the linked list links to a node
 // already visited.
-// func (l *LinkedList) () {}
+func (l *LinkedList) hasCycle() bool {
+	seen := []Node{}
+	current := l.head
+	for current != nil {
+		for _, node := range seen {
+			if *current == node {
+				return true
+			}
+			seen = append(seen, node)
+		}
+	}
+	return false
+}
 
 /// MAIN FUNCTION:
 func main() {
-	fmt.Println("Working")
+
+	fmt.Println("\nCreating first list...")
+	list := LinkedList{}
+	list.printValues()
+
+	fmt.Println("\n (insert) Adding three values...")
+	list.add(8)
+	list.add(3)
+	list.add(15)
+	list.printValues()
+
+	find8 := list.isFound(8)
+	fmt.Printf("\n(search) Check to see if value 8 is included: %v\n", find8)
+
+	max := list.max()
+	fmt.Printf("\n(find max) Max in current list should be 15.  Result: %v\n", max)
+
+	min := list.min()
+	fmt.Printf("\n(find min) Min in current list should be 3.  Result: %v\n", min)
+
+	length := list.count()
+	fmt.Printf("\n(length) Current node count should be 3.  Result: %v\n", length)
+
+	nthBeginning := list.valueAt(2)
+	fmt.Printf("\n(find nth from beginning) currentList.valueAt(2) should return 8.  Result: %v\n", nthBeginning)
+
+	fmt.Println("\n(visit) Printing each value in linked list...")
+	list.printValues()
+	fmt.Printf("\n")
+
+	fmt.Println("\n(delete) going to delete node with value 8.  Printing list again...")
+	list.deleteFirstVal(8)
+	list.printValues()
+	fmt.Printf("\n")
+
 }
