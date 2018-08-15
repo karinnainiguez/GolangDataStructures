@@ -54,6 +54,16 @@ func (l *LinkedList) min() int {
 	return min
 }
 
+// 5. return count of nodes in list
+func (l *LinkedList) count() int {
+	count := 0
+	current := l.head
+	for current != nil {
+		count++
+	}
+	return count
+}
+
 func main() {
 	fmt.Println("Working")
 }
