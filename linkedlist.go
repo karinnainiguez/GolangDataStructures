@@ -98,7 +98,7 @@ func (l *LinkedList) insertAsc(data int) {
 // 8. Print the value of each node in list separated by space.
 func (l *LinkedList) printValues() {
 	current := l.head
-	for current != null {
+	for current != nil {
 		fmt.Printf("%v ", current.data)
 		current = current.nextNode
 	}
@@ -106,7 +106,7 @@ func (l *LinkedList) printValues() {
 
 // 9. Delete first node found with specified input data value.
 func (l *LinkedList) deleteFirstVal(data int) {
-	current := l.head 
+	current := l.head
 	for current.nextNode != nil && current.nextNode.data != data {
 		current = current.nextNode
 	}
@@ -119,29 +119,35 @@ func (l *LinkedList) deleteFirstVal(data int) {
 // just their values.
 // func (l *LinkedList) reverseList() {
 // 	tempList := List{head: &l.head}
-// 	current := l.head.nextNode 
+// 	current := l.head.nextNode
 // 	for current != nil {
-		
+
 // 	}
 
 // }
 
 // 11. Return the value at the middle node.  If node count
 // is even, pick one of the two middle nodes to return.
-func (l *LinkedList) () {}
+func (l *LinkedList) returnMiddleVal() int {
+	nodeCount := l.count()
+	middle := nodeCount / 2
+	current := l.head
+	for i := 0; i < middle; i++ {
+		current = current.nextNode
+	}
+	return current.data
+}
 
 // 12. Find the nth node from the end of list and return
 // value.  Assuming indexing starts at 0 while count to n
-func (l *LinkedList) () {}
+// func (l *LinkedList) () {}
 
 // 13. Check if hte linked list has a cycle.  A cycle
 // exists if any node in the linked list links to a node
 // already visited.
-func (l *LinkedList) () {}
+// func (l *LinkedList) () {}
 
-
-
-/// MAIN FUNCTION: 
+/// MAIN FUNCTION:
 func main() {
 	fmt.Println("Working")
 }
