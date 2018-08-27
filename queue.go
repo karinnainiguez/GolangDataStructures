@@ -38,12 +38,21 @@ func (q *Queue) empty() bool {
 	}
 }
 
-func (q *Queue) size() {
+func (q *Queue) size() int {
 	// returns the number of items in the data structure
+	size := 0
+	current := q.beginning
+	for current != nil {
+		size++
+		current = current.nextNode
+	}
+	return size
 }
 
-func (q *Queue) front() {
+func (q *Queue) front() QueueNode {
 	// returns the item that would be dequeued next
+	nextNode := q.beginning
+	return *nextNode
 }
 
 func (q *Queue) min() {
