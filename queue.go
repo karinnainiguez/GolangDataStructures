@@ -10,32 +10,44 @@ type QueueNode struct {
 	nextNode *QueueNode
 }
 
-func (q *Queue) enqueue() {
-
+func (q *Queue) enqueue(data int) {
+	if q.beginning == nil {
+		newNode := QueueNode{data: data}
+		q.beginning = &newNode
+		q.ending = &newNode
+	} else {
+		newNode := QueueNode{data: data}
+		q.ending.nextNode = &newNode
+		q.ending = &newNode
+	}
 }
 
 func (q *Queue) dequeue() {
 
 }
 
-func (q *Queue) Empty() bool {
+func (q *Queue) empty() bool {
 	// returns true is the data structure is empty,
 	// false otherwise
-	return false
+	if q.beginning == nil {
+		return true
+	} else {
+		return false
+	}
 }
 
-func (q *Queue) Size() {
-
-}
-
-func (q *Queue) Front() {
-
-}
-
-func (q *Queue) Min() {
+func (q *Queue) size() {
 
 }
 
-func (q *Queue) Max() {
+func (q *Queue) front() {
+
+}
+
+func (q *Queue) min() {
+
+}
+
+func (q *Queue) max() {
 
 }
