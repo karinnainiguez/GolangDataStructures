@@ -55,9 +55,20 @@ func (q *Queue) front() QueueNode {
 	return *nextNode
 }
 
-func (q *Queue) min() {
+func (q *Queue) min() int {
 	// returns the min integer data value in the queue
-
+	if q.empty() {
+		return 0
+	}
+	min := q.beginning.data
+	current := q.beginning
+	for current != nil {
+		if current.data < min {
+			min = current.data
+		}
+		current = current.nextNode
+	}
+	return min
 }
 
 func (q *Queue) max() {
