@@ -10,7 +10,8 @@ type StackNode struct {
 }
 
 func (s *Stack) push(data int) {
-
+	newNode := StackNode{data: data, nextNode: s.top}
+	s.top = &newNode
 }
 
 func (s *Stack) pop() StackNode {
