@@ -39,17 +39,19 @@ func (q *Queue) empty() bool {
 }
 
 func (q *Queue) size() {
-
+	// returns the number of items in the data structure
 }
 
 func (q *Queue) front() {
-
+	// returns the item that would be dequeued next
 }
 
 func (q *Queue) min() {
+	// returns the min integer data value in the queue
 
 }
 
 func (q *Queue) max() {
+	// returns the max integer data value in the queue
 
 }
