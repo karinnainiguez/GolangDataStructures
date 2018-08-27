@@ -22,8 +22,10 @@ func (q *Queue) enqueue(data int) {
 	}
 }
 
-func (q *Queue) dequeue() {
-
+func (q *Queue) dequeue() QueueNode {
+	nodeToRemove := q.beginning
+	q.beginning = q.beginning.nextNode
+	return *nodeToRemove
 }
 
 func (q *Queue) empty() bool {
