@@ -71,7 +71,18 @@ func (q *Queue) min() int {
 	return min
 }
 
-func (q *Queue) max() {
+func (q *Queue) max() int {
 	// returns the max integer data value in the queue
-
+	if q.empty() {
+		return 0
+	}
+	max := q.beginning.data
+	current := q.beginning
+	for current != nil {
+		if current.data > max {
+			max = current.data
+		}
+		current = current.nextNode
+	}
+	return max
 }
