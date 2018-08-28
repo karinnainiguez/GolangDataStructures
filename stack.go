@@ -1,7 +1,7 @@
 package main
 
 type Stack struct {
-	top *StackNode
+	topNode *StackNode
 }
 
 type StackNode struct {
@@ -10,12 +10,36 @@ type StackNode struct {
 }
 
 func (s *Stack) push(data int) {
-	newNode := StackNode{data: data, nextNode: s.top}
-	s.top = &newNode
+	newNode := StackNode{data: data, nextNode: s.topNode}
+	s.topNode = &newNode
 }
 
 func (s *Stack) pop() StackNode {
-	nodeToRemove := s.top
-	s.top = s.top.nextNode
+	nodeToRemove := s.topNode
+	s.topNode = s.topNode.nextNode
 	return *nodeToRemove
+}
+
+func (s *Stack) empty() {
+	// returns true is the data structure is empty
+
+}
+
+func (s *Stack) size() {
+	// returns the number of items in the data structure
+
+}
+
+func (s *Stack) top() {
+	// returns the item that would be popped next
+
+}
+
+func (s *Stack) min() {
+	// returns the min integer data value in the stack
+}
+
+func (s *Stack) max() {
+	// returns the max integer data value in the stack
+
 }
