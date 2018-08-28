@@ -10,6 +10,14 @@ type QueueNode struct {
 	nextNode *QueueNode
 }
 
+func newQueue(items ...int) Queue {
+	q := Queue{}
+	for _, item := range items {
+		q.enqueue(item)
+	}
+	return q
+}
+
 func (q *Queue) enqueue(data int) {
 	if q.beginning == nil {
 		newNode := QueueNode{data: data}

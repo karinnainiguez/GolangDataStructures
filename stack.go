@@ -9,6 +9,14 @@ type StackNode struct {
 	nextNode *StackNode
 }
 
+func newStack(items ...int) Stack {
+	s := Stack{}
+	for _, item := range items {
+		s.push(item)
+	}
+	return s
+}
+
 func (s *Stack) push(data int) {
 	newNode := StackNode{data: data, nextNode: s.topNode}
 	s.topNode = &newNode
@@ -40,16 +48,35 @@ func (s *Stack) size() int {
 	return size
 }
 
-func (s *Stack) top() {
+func (s *Stack) top() StackNode {
 	// returns the item that would be popped next
-
+	nodeToRemove := s.topNode
+	return *nodeToRemove
 }
 
-func (s *Stack) min() {
+func (s *Stack) min() int {
 	// returns the min integer data value in the stack
+	min := s.topNode.data
+	current := s.topNode
+	for current != nil {
+		if current.data < min {
+			min = current.data
+		}
+		current = current.nextNode
+	}
+	return min
+
 }
 
-func (s *Stack) max() {
+func (s *Stack) max() int {
 	// returns the max integer data value in the stack
-
+	max := s.topNode.data
+	current := s.topNode
+	for current != nil {
+		if current.data > max {
+			max = current.data
+		}
+		current = current.nextNode
+	}
+	return max
 }

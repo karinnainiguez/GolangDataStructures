@@ -13,6 +13,14 @@ type LinkedList struct {
 	head *Node
 }
 
+func newList(items ...int) LinkedList {
+	l := LinkedList{}
+	for _, item := range items {
+		l.add(item)
+	}
+	return l
+}
+
 // 1. Add new node to list based on input data
 func (l *LinkedList) add(inputData int) {
 	newNode := Node{data: inputData, nextNode: l.head}
