@@ -29,9 +29,15 @@ func (s *Stack) empty() bool {
 
 }
 
-func (s *Stack) size() {
+func (s *Stack) size() int {
 	// returns the number of items in the data structure
-
+	size := 0
+	current := s.topNode
+	for current != nil {
+		size++
+		current = current.nextNode
+	}
+	return size
 }
 
 func (s *Stack) top() {
