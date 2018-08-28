@@ -20,8 +20,12 @@ func (s *Stack) pop() StackNode {
 	return *nodeToRemove
 }
 
-func (s *Stack) empty() {
+func (s *Stack) empty() bool {
 	// returns true is the data structure is empty
+	if s.topNode == nil {
+		return true
+	}
+	return false
 
 }
 
